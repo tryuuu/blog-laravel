@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth; // ログイン情報の把握
 
 class ArticleController extends Controller
 {
@@ -30,6 +31,9 @@ class ArticleController extends Controller
         //create.bladeのPOSTリクエストの処理
         $article->title = $request->title;
         $article->body = $request->body;
+        if (Auth::check()) {
+            $article->author = Auth::user()->name;
+        }
         $article->save();
         //web.phpで指定した名前にリダイレクト
         return redirect(route('articles.index'));

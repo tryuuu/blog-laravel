@@ -36,6 +36,7 @@
             <a href="{{ route('articles.show', $article) }}">{{ $article->title }}</a>
             </div>
             <div class="article-info">{{ $article->created_at }}</div>
+            <div class="article-info2">{{ $article->author }}</div>
         </article>
         @endforeach
     </main>
