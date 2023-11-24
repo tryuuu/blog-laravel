@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     //show.bladeで特定の記事に対してDELETEリクエスト(postはもう使われている)
     Route::delete('/articles/{article}',[ArticleController::class,'delete'])->name('article.delete');
 });
+Route::get('/users',[UserController::class,'ShowUsers'])->name('users.show');
 Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/register',[HomeController::class, 'register'])->name('register');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');

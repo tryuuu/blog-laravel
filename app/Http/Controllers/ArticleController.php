@@ -31,7 +31,9 @@ class ArticleController extends Controller
         //create.bladeのPOSTリクエストの処理
         $article->title = $request->title;
         $article->body = $request->body;
+        //ユーザーがログインしているか判定
         if (Auth::check()) {
+            //ログインし記事を投稿したユーザーの情報を取得し、そのユーザー名を $article->author に割り当て
             $article->author = Auth::user()->name;
         }
         $article->save();

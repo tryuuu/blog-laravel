@@ -12,7 +12,7 @@
         <div class="site-title">ミニブログ</div>
     </header>
     <main class="container">
-        <form action="{{ route('articles.store') }}" method="post">
+        <form action="{{ route('articles.store') }}" method="POST">
             @csrf 
             <dl class="form-list">
                 <dt>タイトル</dt>

@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    //ログイン・会員登録の処理はGETリクエストで新しい画面にリダイレクト
     public function login()
     {
         return view('auth.login');

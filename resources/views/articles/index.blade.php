@@ -10,8 +10,9 @@
 <body>
     <header>
         <div class="site-title">ミニブログ</div>
-        <a href="{{ route('register') }}" class="register-link">会員登録</a>
-        <form action="{{ route('login') }}" method="get" class="login-link">
+        <a href="{{ route('users.show') }}" class="user-list">ユーザー</a>
+        <a href="{{ route('register') }}" class="register-link">新規登録</a>
+        <form action="{{ route('login') }}" method="GET" class="login-link">
             @csrf
             <button type="submit" class="login-button">ログイン</button>
         </form>
