@@ -5,7 +5,7 @@
     <div class="article-control">
     <a href="{{ route('articles.index', $article) }}">戻る</a>
     @if(Auth::check())
-    @if(Auth::user()->name==$article->author)
+    @if(Auth::user()->id==$article->user_id)
         <a href="{{ route('articles.edit', $article) }}">編集</a>
         <form onsubmit="return confirm('本当に削除しますか？')" action="{{ route('article.delete', $article) }}" method="post">
             @csrf 

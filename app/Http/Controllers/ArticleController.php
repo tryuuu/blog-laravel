@@ -35,6 +35,7 @@ class ArticleController extends Controller
         if (Auth::check()) {
             //ログインし記事を投稿したユーザーの情報を取得し、そのユーザー名を $article->author に割り当て
             $article->author = Auth::user()->name;
+            $article->user_id = Auth::user()->id;//現在ログインしているユーザーのIDを割り当て
         }
         $article->save();
         //web.phpで指定した名前にリダイレクト

@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('author');
+            $table->unsignedBigInteger('user_id');
+            //user_id カラムを users テーブルの id カラムにリンクする外部キーとして設定
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->text('body');
             $table->timestamps();
