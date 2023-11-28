@@ -24,8 +24,5 @@
             <a href="{{ route('articles.index') }}">キャンセル</a>
         </form>
     </main>
-    <footer>
-        &copy; Laravel8 入門から開発実践まで
-    </footer>
 </body>
 </html>

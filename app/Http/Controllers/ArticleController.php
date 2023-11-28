@@ -22,11 +22,12 @@ class ArticleController extends Controller
     public function create()
     {
         $articles = new Article();
-        return view('articles.create',['articles'=>$articles]);
+        return view('articles.create');
     }
     //フォームからのPOSTリクエストを受け取る
     public function store(Request $request)
     {
+        //テーブルの既にある要素を編集するのではなく新たに記事を追加する形なので新しいインスタンスを作成
         $article = new Article();
         //create.bladeのPOSTリクエストの処理
         $article->title = $request->title;
@@ -56,6 +57,7 @@ class ArticleController extends Controller
         return view('articles.edit',['article'=>$article]);
     }
 
+    //以下二つはarticlesテーブルの既にある要素を編集・削除するので新しいインスタンスは要らず受け取ったインスタンスで
     public function update(Request $request, Article $article)
     {
         $article->title = $request->title;

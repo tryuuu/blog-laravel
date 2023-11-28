@@ -6,6 +6,7 @@
     <a href="{{ route('articles.index', $article) }}">戻る</a>
     @if(Auth::check())
     @if(Auth::user()->id==$article->user_id)
+        <!--$articlesインスタンスを渡すことで記事の正確なIDが編集ページに渡される-->
         <a href="{{ route('articles.edit', $article) }}">編集</a>
         <form onsubmit="return confirm('本当に削除しますか？')" action="{{ route('article.delete', $article) }}" method="post">
             @csrf 

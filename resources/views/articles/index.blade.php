@@ -41,8 +41,5 @@
         </article>
         @endforeach
     </main>
-    <footer>
-        &copy; Laravel8 入門〜開発実践まで
-    </footer>
 </body>
 </html>
