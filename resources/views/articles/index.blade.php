@@ -25,6 +25,7 @@
                 {{ Auth::user()->name }}でログインしています。
             </div>
         @endif
+        <a href="{{ route('tag.search') }}" class="tag-search-link">タグで検索</a>
     </header>
     <main class="container">
         <!--web.phpで定めた名前へルーティングを変更-->
@@ -36,6 +37,14 @@
                 <!--Laravelはこれを解析して中から idプロパティを取り出し、その値をURLに埋め込む->web.phpへ-->
             <a href="{{ route('articles.show', $article) }}">{{ $article->title }}</a>
             </div>
+            <!-- タグを表示する -->
+        @if($article->tags && $article->tags->count() > 0)
+            <div class="article-tags">
+                @foreach($article->tags as $tag)
+                    <span class="tag">{{ $tag->name }}</span>
+                @endforeach
+            </div>
+        @endif
             <div class="article-info">{{ $article->created_at }}</div>
             <div class="article-info2">{{ $article->author }}</div>
         </article>

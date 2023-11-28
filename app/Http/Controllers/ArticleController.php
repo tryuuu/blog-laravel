@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth; // ログイン情報の把握
 
 class ArticleController extends Controller
@@ -39,6 +40,17 @@ class ArticleController extends Controller
             $article->user_id = Auth::user()->id;//現在ログインしているユーザーのIDを割り当て
         }
         $article->save();
+
+        // タグの処理
+        if ($request->has('tag')) {
+            // タグ名を取得し、既に存在するか確認、なければ新しいタグを作成
+            $tagNames = explode(',', $request->tag); // タグはカンマで区切る
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => trim($tagName)]);
+                $article->tags()->attach($tag->id);
+            }
+        }
+
         //web.phpで指定した名前にリダイレクト
         return redirect(route('articles.index'));
     }

@@ -17,6 +17,8 @@
             <dl class="form-list">
                 <dt>タイトル</dt>
                 <dd><input type="text" name="title"></dd>
+                <dt>タグを入力してください(複数ある場合カンマで区切ること)</dt>
+                <dd><input type="text" name="tag"></dd>
                 <dt>本文</dt>
                 <dd><textarea name="body" rows="5"></textarea></dd>
             </dl>

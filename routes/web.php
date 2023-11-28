@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\TagSearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +38,8 @@ Route::get('/register',[HomeController::class, 'register'])->name('register');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 //{articles}は変数(IDなど)
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/tag/search',[TagSearchController::class,'index'])->name('tag.search');
+Route::post('/tag/search',[TagSearchController::class,'search'])->name('tag.search.submit');
 
 
 Route::get('/dashboard', function () {
